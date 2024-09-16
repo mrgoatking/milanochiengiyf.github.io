@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
+    <meta http-equiv='pragma' content='no-cache'>
+    <title>Penguin Inc. Technologies</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0 7%;
+  scroll-behavior: smooth;
+}
+
+span {
+  color: #50c878;
+}
+
+.btn1 {
+  color: #fff;
+  background-color: #3063c5;
+  padding: 10px 20px;
+  border-radius: 1px;
+  border: 1px solid #3063c5;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn1:hover {
+  border: 1px solid #4a90e2;
+  color: #fff;
+  background-color: #4a90e2;
+}
+
+.btn2 {
+  color: #4a90e2;
+  background-color: transparent;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn2:hover {
+  background-color: #4a90e2;
+  border: 1px solid #4a90e2;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 13rem;
+  padding: 15px 7%;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: 0.3s;
+}
+
+#navbar {
+  transition: top 0.3s, box-shadow 0.3s;
+}
+
+.fixed {
+  display: flex;
+  align-items: center;
+  gap: 13rem;
+  padding: 15px 7%;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #8d8d8d;
+}
+
+nav ul li {
+  position: relative;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+nav ul li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #4a90e2;
+  transition: width 0.3s ease;
+}
+
+nav ul li:hover::before {
+  width: 70%;
+}
+
+nav ul li.active::before {
+  width: 100%;
+  color: #4a90e2;
+}
+
+nav img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.active {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+.logins {
+  display: flex;
+  align-items: center;
+  gap: 0.05rem;
+}
+
+.logins .btn1,
+.btn2 {
+  font-size: 0.9rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  scroll-margin-top: 0.5rem;
+  height: 100vh;
+  margin-top: 2rem;
+}
+
+header .left {
+  width: 45%;
+}
+
+header .left h1 {
+  color: #4a90e2;
+  font-size: 3.55rem;
+  line-height: 70px;
+  margin-bottom: 1rem;
+}
+
+header .left p {
+  color: #8d8d8d;
+  width: 90%;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.inputContainer input[type="text"] {
+  padding: 15px;
+  border: 1px solid #d6d6d6;
+  border-right: none;
+  outline: none;
+  width: 60%;
+  height: 50px;
+}
+
+.signup {
+  border-radius: 0;
+  width: 150px;
+  height: 50px;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.signup:hover {
+  border: #4a90e2;
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.book {
+  background-color: #3063c5;
+  border: 1px solid #3063c5;
+  padding: 15px 10px;
+  width: 150px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.play {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 0.3rem;
+}
+
+.play i {
+  margin: auto;
+  background-color: #00c48c;
+  color: #fff;
+  padding: 10px;
+  border-radius: 100%;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.play:hover i {
+  background-color: #00a075;
+}
+
+.hero {
+  position: relative;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 2rem;
+  background-color: #d6e9ff;
+  width: 70%;
+  margin: auto;
+  margin-top: -2rem;
+  margin-bottom: 4rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  margin: 0 1rem;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.column h3 {
+  font-size: 2rem;
+  color: #3063c5;
+  margin: 0;
+}
+
+.column p {
+  font-size: 1rem;
+  color: #000;
+  margin-top: 0.5rem;
+}
+
+.column:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #fff;
+}
+
+.services {
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.services h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cards img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 3%;
+}
+
+.card {
+  background-color: #d6e9ff;
+  align-items: center;
+  text-align: center;
+  padding: 1%;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card h4 {
+  padding-top: 10px;
+}
+
+.card p {
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.card:hover {
+  background-color: #3063c5;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.illness {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.category {
+  background-color: rgba(197, 224, 248, 0.3);
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+  max-width: 180px;
+  min-width: 180px;
+  height: 200px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in, transform 0.3s ease-in;
+}
+
+.category img {
+  width: 100px;
+  height: 100px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 10px;
+}
+
+.category h4 {
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.category:hover {
+  background-color: rgba(197, 224, 248, 1);
+  transform: scale(1.05);
+}
+
+.category:hover img {
+  transform: scale(1.05);
+}
+
+.category:hover h4 {
+  color: #00c48c;
+}
+
+.lookingFor {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.lookingFor h1 {
+  text-align: start;
+  font-size: 1.5rem;
+}
+
+.lookingFor .categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lookingFor .category {
+  max-width: 280px;
+  height: 180px;
+}
+
+.lookingFor .category h4 {
+  font-size: 1.4rem;
+  padding-bottom: 10px;
+}
+
+.lookingFor .category img {
+  display: none;
+}
+
+#doctor {
+  align-items: center;
+}
+#doctor h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+.doctors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.profile {
+  display: inline-block;
+  width: 250px;
+  margin: 15px;
+  padding: 20px;
+  background-color: rgba(197, 224, 248, 0.3);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.profile h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile p {
+  font-size: 1em;
+  color: #666;
+}
+
+.profile:hover {
+  background-color: rgba(197, 224, 248, 1);
+  transform: scale(1.05);
+}
+
+.procedure {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  .process {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    h2 {
+      font-size: 1.2rem;
+      color: #333;
+      padding-top: 15px;
+    }
+    p {
+      font-size: 0.75rem;
+      color: #666;
+      padding-top: 5px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+}
+
+/* DOCTORS CTA */
+.callToAction {
+  button {
+    margin-top: 1rem;
+  }
+}
+
+.bestDoctors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+
+  h1 {
+    font-size: 3rem;
+    color: #4a90e2;
+  }
+  p {
+    color: #666;
+    padding-top: 0.6rem;
+  }
+
+  .start {
+    width: 45%;
+  }
+  .end {
+    width: 50%;
+    img {
+      width: 600px;
+      object-fit: cover;
+    }
+  }
+}
+.onlineCare {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-top: 4rem;
+
+  h1 {
+    font-size: 3rem;
+    color: #4a90e2;
+  }
+  p {
+    color: #666;
+  }
+  .start {
+    width: 45%;
+  }
+  .end {
+    width: 50%;
+    img {
+      height: 500px;
+      object-fit: cover;
+    }
+  }
+}
+.testimonial {
+  margin-top: 5rem;
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+  }
+
+  .testimony {
+    display: flex;
+    overflow: hidden;
+    margin-top: 1rem;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+
+    .cardT {
+      flex: 0 0 50%;
+      box-sizing: border-box;
+      text-align: start;
+      padding: 7%;
+      border-radius: 0;
+      background-color: #f9f9f9;
+      transition: transform 0.5s ease-in-out;
+
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: #444;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .navigation {
+    text-align: center;
+    margin-top: 1rem;
+
+    i {
+      font-size: 2rem;
+      margin: 0 1rem;
+      color: #007bff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #0056b3; 
+      }
+    }
+  }
+}
+
+.registerCta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  margin-top: 3rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .btn1 {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    color: #fff;
+    background-color: #00c48c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #00a075;
+    }
+  }
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  .logoPart,
+  .servicesDiv,
+  .features,
+  .user {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #007bff;
+    }
+    h6 {
+      font-weight: 400;
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #666;
+      cursor: pointer;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+
+    .socials {
+      margin-top: 2rem;
+
+      i {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        padding: 10px;
+        background-color: #ebebeb;
+        border-radius: 50%;
+        color: #007bff;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+          color: #fff;
+          background-color: #00c48c;
+        }
+      }
+    }
+  }
+  .dd {
+    margin-top: 2rem;
+  }
+}
+.logoPart img {
+  width: 250px;
+}
+
+  </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <img src="./images/download.png" alt="Medilop" >
+    
+      <ul>
+        <li id="home" class="active">Home</li>
+        <li id="services">Services</li>
+        <li id="doctors">Techie</li>
+        <li id="facilities">Facilities</li>
+        <li id="aboutUs">About Us</li>
+      </ul>
+
+      <div class="logins">
+        <button class="btn2">Login</button>
+        <button class="btn1">Sign Up</button>
+      </div>
+    </nav>
+
+    <header id="hero" class="hero">
+      <div class="left">
+        <h1>In Technology <br /><span>We Believe</span>.</h1>
+        <p>
+          At Penguin Inc Technologies, we make Tech simple. Connect with trusted IT Gurus,
+          get expert advice, and ensure your IT is in safe hands. Your
+          wellness is our priority, and we’re here to guide you every step of
+          the way.
+        </p>
+
+        <div class="inputContainer">
+          <input type="text" placeholder="Enter your email" />
+          <button class="btn1 signup">Sign Up</button>
+        </div>
+
+        <div class="cta">
+          <button class="btn1 book">Book Now</button>
+          <div class="play">
+            <i class="fa-solid fa-play" id="playButton"></i>
+            <p>Play Video</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <video id="myVideo" width="100%" height="100%" loop>
+          <source src="./video/y2mate.com - Technology Background Video Loop For Website_720p.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>      
+      </div>
+    </header>
+
+    <!-- BANNER -->
+    <div class="banner">
+      <div class="column">
+        <h3 id="match-success-rate">0%</h3>
+        <p>Match Success Rate</p>
+      </div>
+      <div class="column">
+        <h3 id="clients-attended">0+</h3>
+        <p>Clients Attended to</p>
+      </div>
+      <div class="column">
+        <h3 id="verified-reviews">0+</h3>
+        <p>Verified Client Reviews</p>
+      </div>
+      <div class="column">
+        <h3 id="satisfaction-guaranteed">0%</h3>
+        <p>Satisfaction Guaranteed</p>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="services" id="Services">
+      <h1>Our Best <span>Services</span></h1>
+      <div class="cards">
+        <div class="card">
+          <img src="./images/techspe.png" alt="" />
+          <h4>All Specialists</h4>
+          <p>Access to top IT specialists across various fields.</p>
+        </div>
+        <div class="card">
+          <img src="images/priv.jpeg" alt="" />
+          <h4>Private & Secure</h4>
+          <p>Your data is protected with advanced encryption.</p>
+        </div>
+        <div class="card">
+          <img src="./images/clients.jpeg" alt="" />
+          <h4>Millions of Customers</h4>
+          <p>Trusted by millions of satisfied clients worldwide.</p>
+        </div>
+        <div class="card">
+          <img src="./images/chatbot.png" alt="" />
+          <h4>Chatbot Support</h4>
+          <p>24/7 AI-powered chatbot to assist with your queries.</p>
+        </div>
+      </div>
+
+      <div class="illness">
+        <div class="category">
+          <img src="./images/webdevelopment.jpeg" alt="" />
+          <h4>Web Developing</h4>
+        </div>
+        <div class="category">
+          <img src="./images/datasci.jpeg" alt="" />
+          <h4>Data Science</h4>
+        </div>
+        <div class="category">
+          <img src="./images/app dev.jpeg" alt="" />
+          <h4>App Development</h4>
+        </div>
+        <div class="category">
+          <img src="./images/webhost.jpeg" alt="" />
+          <h4>Web Hosting</h4>
+        </div>
+        <div class="category">
+          <img src="./images/machine.jpeg" alt="" />
+          <h4>Machine Language</h4>
+        </div>
+        <div class="category">
+          <img src="./images/ai.jpeg" alt="" />
+          <h4>AI and LLM</h4>
+        </div>
+      </div>
+
+      <div class="lookingFor">
+        <h1>Are You Looking For:</h1>
+        <div class="categories">
+          <div class="category">
+            <h4>Software Engineers</h4>
+            <p>Find the best specialists in your area for personalized care.</p>
+          </div>
+          <div class="category">
+            <h4>Consult</h4>
+            <p>Book a consultation with top professionals anytime, anywhere.</p>
+          </div>
+          <div class="category">
+            <h4>Tech Lab</h4>
+            <p>
+              Order  online and get them delivered to your doorstep.
+            </p>
+          </div>
+          <div class="category">
+            <h4>Diagnostics</h4>
+            <p>
+              Access a wide range of diagnostic tests with reliable results.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCTORS -->
+    <section id="doctor">
+      <h1>Our Best <span>IT Specialist</span></h1>
+      <div class="doctors">
+        <div class="profile">
+          <img src="./images/Milan.jpeg" alt="" />
+          <h2>Eng. Milan, PhD</h2>
+          <p>
+            Eng. Milan specializes in web development app develoment and Machine learning with over 15 years of
+            experience in advanced IT field.
+          </p>
+        </div>
+        <div class="profile">
+          <img src="./images/eunice.jpeg" alt="" />
+          <h2>Dr. Eunice, PhD</h2>
+          <p>
+            Dr. Eunice is an expert in AI and LLM, focusing on innovative
+            research and customers care for a vast artificial Inteligence.
+          </p>
+        </div>
+        <div class="profile">
+          <img src="./images/angel.jpeg" alt="" />
+          <h2>Dr. Angel, PhD</h2>
+          <p>
+            Dr. Angel has a deep background in Data Science, dedicated to
+            providing exceptional knowledge to data science field.
+          </p>
+        </div>
+        <div class="profile">
+          <img src="./images/bree.jpeg" alt="" />
+          <h2>Prof. Bree, PhD</h2>
+          <p>
+            Prof. Bree is renowned for his work in Web developing and web hosting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PROCESS -->
+    <section id="doctor">
+      <h1>Easy Steps And<span> Get Your Solution</span></h1>
+      <div class="procedure">
+        <div class="process">
+          <img src="./images/profile.jpeg" alt="" />
+          <h2>Check IT Specialist's Profile</h2>
+          
+        </div>
+        <div class="process">
+          <img src="./images/request.png" alt="" />
+          <h2>Request Consultation</h2>
+          
+        </div>
+        <div class="process">
+          <img src="./images/receive.jpeg" alt="" />
+          <h2>Receive Your Consultation</h2>
+          
+        </div>
+        <div class="process">
+          <img src="./images/solulu.jpeg" alt="" />
+          <h2>Get your solution</h2>
+          
+        </div>
+      </div>
+    </section>
+
+<!-- BEST DOCTORS CTA -->
+ <section class="callToAction">
+  <div class="bestDoctors">
+    <div class="start">
+      <h1>Best IT Specialist <span>Anywhere And Anytime</span></h1>
+      <button class="btn1">Find One Now</button>
+    </div>
+    <div class="end">
+      <img src="./images/itguru.png" alt="">
+    </div>
+  </div>
+  <div class="onlineCare">
+    <div class="start">
+      <h1>Best Software Engineer <span>Anywhere And Anytime</span></h1>
+      <button class="btn1">Book Appointment</button>
+    </div>
+    <div class="end">
+      <img src="./images/softw.png" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonial">
+  <h1>What People Say <span>About Us</span></h1>
+  <div class="testimony">
+    <div class="cardT">
+      <img src="./images/ruto.jpeg" alt="">
+      <h3>William Ruto</h3>
+      <p>"This service has transformed the way I manage my tech skills. The professionalism and care from the team are exceptional!"</p>
+    </div>
+    <div class="cardT">
+      <img src="./images/diram.jpeg" alt="">
+      <h3>Diram Guyo</h3>
+      <p>"I'm so grateful for the easy and efficient process of booking appointments. It has made my life so much easier!"</p>
+    </div>
+  </div>
+  <div class="navigation">
+    <i class="prev fa-solid fa-chevron-left"></i>
+    <i class="next fa-solid fa-chevron-right"></i>
+  </div>
+</section>
+
+
+
+
+<div class="registerCta">
+  <h1>Want to <span>Register </span> Easily?</h1>
+  <button class="btn1">SUBMIT HERE</button>
+</div>
+
+<footer>
+  <div class="logoPart">
+<img src="./images/hacker-logo-design-a-mysterious-and-dangerous-hacker-illustration-vector.jpg" alt="">
+<h6>Penguin Inc. Technologies is a leading technology solutions provider specializing in advanced IT services and digital transformation. Founded in 2010, the company delivers cutting-edge solutions in software development, cloud computing, and cybersecurity to businesses across various industries. With a commitment to innovation and customer satisfaction, Penguin Inc. Technologies leverages state-of-the-art technologies to help clients streamline operations, enhance security, and drive growth. Our team of expert engineers and consultants is dedicated to providing tailored solutions that meet the evolving needs of modern enterprises.</h6>
+<br>
+<p>&copy; 2024 Penguin Inc. Technologies. All rights reserved.</p>
+<div class="socials">
+  <i class="fa-brands fa-x-twitter"></i>
+  <i class="fa-brands fa-linkedin-in"></i>
+  <i class="fa-brands fa-instagram"></i>
+  <i class="fa-brands fa-facebook"></i>
+</div>
+</div>
+  <div class="servicesDiv dd">
+<h1>Services</h1>
+<p>Delivery support</p>
+<p>Contact Us</p>
+<p>Terms of use</p>
+<p>Privacy Policy</p>
+
+  </div>
+  <div class="features dd">
+    <h1>Features</h1>
+<p>Home</p>
+<p>Services</p>
+<p>Software Engineers</p>
+<p>Facilities</p>
+<p>About Us</p>
+
+  </div>
+  <div class="user dd">
+    <h1>Users</h1>
+<p>User Login</p>
+<p>User register</p>
+<p>Forgot Password</p>
+<p>Account</p>
+  </div>
+
+</footer>
+
+
+    <script>
+      const navLinks = document.querySelectorAll('nav ul li');
+
+// Function to remove the active class from all links
+function removeActiveClass() {
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+}
+
+// Add click event listener to each link
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        removeActiveClass(); 
+        this.classList.add('active');  
+    });
+});
+
+// Fix Navbar Top
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    const sticky = navbar.offsetTop;
+  
+    if (window.pageYOffset > sticky) {
+      navbar.classList.add('fixed');
+    } else {
+      navbar.classList.remove('fixed');
+    }
+  });
+
+  // Testimonials slider
+  const testimony = document.querySelector('.testimony');
+const cards = document.querySelectorAll('.cardT');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+let currentIndex = 0;
+const totalVisibleCards = 2;
+const totalCards = cards.length;
+
+// Function to update the position of the cards
+function updateSlidePosition() {
+  const offset = currentIndex * (100 / totalVisibleCards);
+  testimony.style.transform = `translateX(-${offset}%)`;
+}
+
+// Function to move to the next set of cards
+function nextSlide() {
+  if (currentIndex < totalCards - totalVisibleCards) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  updateSlidePosition();
+}
+
+// Function to move to the previous set of cards
+function prevSlide() {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = totalCards - totalVisibleCards;
+  }
+  updateSlidePosition();
+}
+
+// Event listeners for the chevrons
+prev.addEventListener('click', () => {
+  clearInterval(autoSlideInterval);
+  prevSlide();
+  autoSlideInterval = setInterval(nextSlide, 3000); // Restart the auto slide
+});
+
+next.addEventListener('click', () => {
+  clearInterval(autoSlideInterval);
+  nextSlide();
+  autoSlideInterval = setInterval(nextSlide, 3000); // Restart the auto slide
+});
+
+const video = document.getElementById('myVideo');
+const playButton = document.getElementById('playButton');
+
+playButton.addEventListener('click', function() {
+  if (video.paused) {
+    video.play();
+    playButton.classList.add('fa-pause'); // Add pause icon
+    playButton.classList.remove('fa-play'); // Remove play icon
+  } else {
+    video.pause();
+    playButton.classList.add('fa-play'); // Add play icon
+    playButton.classList.remove('fa-pause'); // Remove pause icon
+  }
+});
+
+// Define the stats data
+const statsData = [
+  { id: 'match-success-rate', value: 95, suffix: '%' },
+  { id: 'clients-attended', value: 15000, suffix: '+' },
+  { id: 'verified-reviews', value: 30000, suffix: '+' },
+  { id: 'satisfaction-guaranteed', value: 100, suffix: '%' }
+];
+
+// Animate the counters
+const animationDuration = 2000;
+function animateCounter(element, targetValue, stat) {
+  let currentValue = 0;
+  const increment = Math.ceil(targetValue / animationDuration * 10);
+  const interval = setInterval(() => {
+    currentValue += increment;
+    element.textContent = `${currentValue.toLocaleString()}${stat.suffix}`;
+    if (currentValue >= targetValue) {
+      clearInterval(interval);
+      element.textContent = `${targetValue.toLocaleString()}${stat.suffix}`;
+    }
+  }, 10);
+}
+
+// Animate each stat
+statsData.forEach(stat => {
+  const element = document.getElementById(stat.id);
+  animateCounter(element, stat.value, stat);
+});
+    </script>
+    <script
+      src="https://kit.fontawesome.com/781946605d.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
